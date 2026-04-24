@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Resolve · Mejora y escalado de imágenes</title>
+<meta name="description" content="Herramienta profesional para mejorar la nitidez y resolución de tus imágenes. Sube, procesa y descarga en alta resolución." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header id="header">
+  <div class="container hd">
+    <a href="#" class="brand" data-testid="brand-logo">
+      <span class="logo">R</span>
+      <span class="name">Resolve</span>
+    </a>
+    <nav>
+      <a href="#features" data-testid="nav-features">Características</a>
+      <a href="#how" data-testid="nav-how">Cómo funciona</a>
+      <a href="#app" class="navCta" data-testid="nav-cta">Probar</a>
+    </nav>
+    <button class="theme" id="themeBtn" aria-label="Cambiar tema" data-testid="theme-toggle">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container heroIn">
+    <div class="heroText">
+      <div class="eyebrow"><span class="dot"></span><span>Herramienta de escalado profesional</span></div>
+      <h1 class="display">
+        <span>Imágenes más</span>
+        <span><em>nítidas</em>, con</span>
+        <span>mayor resolución.</span>
+      </h1>
+      <p class="lead">Sube una imagen y obtén una versión más detallada, definida y lista para usar en impresión, archivo o publicación. Todo ocurre en tu navegador, en segundos.</p>
+      <div class="ctaRow">
+        <button class="btnPrim" onclick="document.getElementById('app').scrollIntoView({behavior:'smooth'})" data-testid="hero-start-btn">
+          Empezar ahora
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div class="resTags"><span>2K</span><span class="sep"></span><span>4K</span><span class="sep"></span><span>8K</span></div>
+      </div>
+      <div class="trust">
+        <div class="trustItem"><span class="idx">01</span><span>Subir</span></div>
+        <div class="trustItem"><span class="idx">02</span><span>Configurar</span></div>
+        <div class="trustItem"><span class="idx">03</span><span>Procesar</span></div>
+        <div class="trustItem"><span class="idx">04</span><span>Descargar</span></div>
+      </div>
+    </div>
+    <div class="heroMedia">
+      <div class="mediaLabel">
+        <span>Arrastra para comparar</span>
+      </div>
+      <div class="slider" id="heroSlider" data-testid="hero-slider">
+        <img src="https://images.pexels.com/photos/9516040/pexels-photo-9516040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1024&w=1024" alt="" id="heroAfter">
+        <div class="clip" id="heroClip"><img src="https://images.pexels.com/photos/9516040/pexels-photo-9516040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1024&w=1024" alt=""></div>
+        <div class="handle" id="heroDiv" style="left:50%"><span class="grip"></span></div>
+        <span class="badge l">Original</span><span class="badge r">Mejorado · 4K</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="features">
+  <div class="container pad">
+    <div class="secHdr reveal">
+      <div>
+        <div class="kicker">Características</div>
+        <h2 class="displaySm">Diseñado para <em>resultados</em>, no para complicaciones.</h2>
+      </div>
+      <p class="secLead">Una herramienta enfocada, rápida y precisa. Sin pasos innecesarios, sin configuración técnica.</p>
+    </div>
+    <div class="feats" id="featsGrid"></div>
+  </div>
+</section>
+
+<section class="sec secApp" id="app">
+  <div class="appWrap">
+    <div class="secHdr">
+      <div>
+        <div class="kicker">Estudio</div>
+        <h2 class="displaySm">Sube, configura, mejora.</h2>
+      </div>
+      <p class="secLead">Tres pasos sencillos para transformar cualquier imagen en alta resolución.</p>
+    </div>
+
+    <div id="dropArea">
+      <div class="dropzone" id="dropzone" data-testid="dropzone">
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+        <div class="dzIcon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M7 8l5-5 5 5"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg></div>
+        <h3>Suelta tu imagen aquí</h3>
+        <p>o haz clic para seleccionar un archivo</p>
+        <div class="meta">JPG · PNG · WEBP · hasta 20MB</div>
+      </div>
+    </div>
+    <div id="errMsg" class="hidden errBox"><p id="errText"></p></div>
+
+    <div id="configArea" class="hidden">
+      <div class="configHdr">
+        <div class="kicker">Elige una resolución de salida</div>
+      </div>
+      <div class="resGrid" id="resGrid" data-testid="res-grid"></div>
+      <div class="startBtn"><button class="btnPrim" id="startBtn" data-testid="start-btn">
+        <span id="startTxt">Mejorar imagen · 4K</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button></div>
+    </div>
+
+    <div id="progArea" class="hidden">
+      <div class="prog">
+        <div class="progTop">
+          <div>
+            <div class="kicker">Procesando</div>
+            <div class="progStage" id="stageTxt">Preparando</div>
+          </div>
+          <div class="progRight">
+            <div class="kicker">Transcurrido</div>
+            <div class="progTime" id="elapsed">00:00</div>
+          </div>
+        </div>
+        <div class="progBar">
+          <div class="progRow"><span class="kicker" id="targetLbl">Salida · 4K</span><span class="pct" id="pctTxt">0%</span></div>
+          <div class="track"><div class="fill" id="fillBar" style="width:0%"></div></div>
+          <div class="stages" id="stagesRow"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultArea" class="hidden">
+      <div class="result">
+        <div class="resBox">
+          <div class="resTop">
+            <div>
+              <div class="ok">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                <span>Mejora completada</span>
+              </div>
+              <h3 class="resTitle">Tu imagen está lista</h3>
+              <p class="resDesc">Descarga el archivo en alta resolución o vuelve a empezar con otra imagen.</p>
+            </div>
+            <div class="resRight">
+              <div class="kicker">Salida</div>
+              <div class="resNum" id="outNum">4K</div>
+              <div class="resPx" id="outPx">— × — px</div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btnPrim" id="downloadBtn" data-testid="download-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14"/><path d="M5 12l7 7 7-7"/><path d="M5 21h14"/></svg>
+              <span id="dlTxt">Descargar · 4K</span>
+            </button>
+            <button class="btnGhost" id="resetBtn" data-testid="reset-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 15-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+              Nueva imagen
+            </button>
+          </div>
+        </div>
+        <div class="compareLbl"><span>Comparar original y mejorada</span><span class="ln"></span></div>
+        <div class="slider" id="resultSlider" data-testid="result-slider">
+          <img id="resAfter" alt=""><div class="clip"><img id="resBefore" alt=""></div>
+          <div class="handle" style="left:50%"><span class="grip"></span></div>
+          <span class="badge l">Original</span><span class="badge r" id="resBadge">Mejorado · 4K</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="container pad">
+    <div class="secHdr reveal">
+      <div>
+        <div class="kicker">Flujo</div>
+        <h2 class="displaySm">Cuatro pasos. Sin fricción.</h2>
+      </div>
+      <p class="secLead">Una experiencia pensada para que empieces y termines sin distracciones.</p>
+    </div>
+    <div class="how" id="howGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footRow">
+    <div class="footBrand">
+      <span class="logo">R</span>
+      <span class="name">Resolve</span>
+    </div>
+    <div class="footMeta">Mejora y escalado profesional de imágenes</div>
+    <div class="footMeta">© <span id="yr"></span> Resolve. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<!-- Core libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/upscaler@1.0.0-beta.19/dist/browser/umd/upscaler.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
